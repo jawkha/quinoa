@@ -68,8 +68,31 @@ for (i = 0; i < tagsArray.length; i++){
     tagsTable.push([i+1, tagsArray[i]]);
 }
 // console.log(tagsTable);
+// ================ PREPARING CATEGORIES_TAGS TABLE=================
+let tagsInEachCategory = [];
+
+data.map(obj => {
+    tagsInEachCategory.push(obj.tags);
+})
+// console.log(tagsInEachCategory);
+let categoriesTagsTable = [];
+let categoriesTagsTableWithNames = []; // just to verify the results
+
+for (i = 0; i < tagsInEachCategory.length; i++) {
+    for (j = 0; j < tagsArray.length; j++){
+        if (tagsInEachCategory[i].includes(tagsArray[j])) {
+            categoriesTagsTable.push([i+1, j+1]);
+            categoriesTagsTableWithNames.push([tagsInEachCategory[i], tagsArray[j]]);
+        }
+    }
+}
+console.log(categoriesTagsTable);
+console.log(categoriesTagsTable.length);
+console.log(categoriesTagsTableWithNames);
+console.log(categoriesTagsTableWithNames.length);
 // =================================================================
 module.exports = {
     categoriesTable,
-    tagsTable
+    tagsTable,
+    categoriesTagsTable
 };
