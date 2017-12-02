@@ -1,14 +1,47 @@
 import React, { Component } from 'react';
-import logo from './assets/images/logos/quinoa_logo.jpeg';
+import axios from 'axios';
+
+import Home from './components/Home';
+import TaggedCategories from './components/TaggedCategories'; 
 import './assets/css/App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+        tags: [],
+        tagMatches: [],
+        activeTag: ""
+    };
+    this.findTaggedCategories = this.findTaggedCategories.bind(this);
+  }
+
+   //   GET REQUEST --- 
+   componentDidMount() {
+    axios.get("/home").then(res => {
+      console.log(res.data);
+      const tags = res.data;
+      this.setState({ tags: tags });
+    });
+  }
+
+  findTaggedCategories(tag) {
+    this.setState({activeTag: tag});
+    // this should be promise based!!!
+    if (this.state.activeTag){
+    axios.get(`/${this.state.activeTag}`).then(res => {
+      console.log(res.data);
+      const tagMatches = res.data;
+      this.setState({ tagMatches: tagMatches });
+    });
+  }
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} alt='logo'/>
-        </header>
+        <Home tags={this.state.tags} findTaggedCategories={this.findTaggedCategories} />
+        <TaggedCategories activeTag={this.state.activeTag} tagMatches={this.state.tagMatches} />        
       </div>
     );
   }
