@@ -31,3 +31,9 @@ db/db_create/rename_db.sh
 
 # project instructions folder
 class02-final-project
+
+# images folder
+src/assets/images/categories
+
+# my notes
+notes.md
