@@ -2,9 +2,9 @@ import React from 'react';
 
 const TaggedCategoriesLookingFor = (props) => {
     return (
-        
-        <h3>Looking for <span className="text-capitalize">{props.activeTag}</span> </h3>
-      
+        <div>
+        <h5 className="py-2 my-2">Looking for <span className="text-capitalize">{props.activeTag}</span> </h5>
+        </div>
     )
 }
 
