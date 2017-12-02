@@ -36,7 +36,7 @@ app.get("/home", (req, res) => {
 });
 
 app.get("/:tag", (req, res) => {
-  let sqlQuery = "SELECT category_name, tag_name, water_consumption FROM categories_tags JOIN categories ON categories.category_id = categories_tags.category_id JOIN tags ON tags.tag_id = categories_tags.tag_id WHERE tag_name = ?";
+  let sqlQuery = "SELECT category_name, tag_name, water_consumption FROM categories_tags JOIN categories ON categories.category_id = categories_tags.category_id JOIN tags ON tags.tag_id = categories_tags.tag_id WHERE tag_name = ? ORDER BY water_consumption DESC";
   let value = req.params.tag;
   let query = connection.query(sqlQuery, value, function (error, results, fields) {
     if (error) throw error;

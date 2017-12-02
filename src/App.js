@@ -26,15 +26,13 @@ class App extends Component {
   }
 
   findTaggedCategories(tag) {
-    this.setState({activeTag: tag});
-    // this should be promise based!!!
-    if (this.state.activeTag){
-    axios.get(`/${this.state.activeTag}`).then(res => {
-      console.log(res.data);
-      const tagMatches = res.data;
-      this.setState({ tagMatches: tagMatches });
+    this.setState({activeTag: tag}, function(){
+      axios.get(`/${this.state.activeTag}`).then(res => {
+        console.log(res.data);
+        const tagMatches = res.data;
+        this.setState({ tagMatches: tagMatches });
+      });
     });
-  }
   }
 
   render() {
