@@ -19,7 +19,7 @@ class HomeSingleTag extends Component {
                 className="btn btn-success btn-block my-1 py-3"
                 onClick={this.handleClick}>
                 <span id="single-tag">{this.props.tag}</span>
-                <FaChevronRight id="single-tag-chevron" />
+                <FaChevronRight id="single-tag-chevron" className="float-right" />
             </div>
         );
     }
