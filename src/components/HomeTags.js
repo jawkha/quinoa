@@ -9,7 +9,6 @@ const HomeTags = props => {
         <HomeSingleTag
           key={tag.tag_id}
           tag={tag.tag_name}
-          findTaggedCategories={props.findTaggedCategories}
         />
       ))}
     </div>
