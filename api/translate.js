@@ -3,7 +3,7 @@ var gettextParser = require('gettext-parser');
 
 // this is a minimal example of how to do translation.
 module.exports = function translate (tag) {
-    var input = require('fs').readFileSync('./translations/da-DK.po');
+    var input = require('fs').readFileSync(`${__dirname}/translations/da-DK.po`);
     var po = gettextParser.po.parse(input, "UTF-8");
     var translation = po.translations[''][tag.toLowerCase()];
     if (translation) {

@@ -20,6 +20,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+#=====================================================
 # trash folder contains experiments that didn't work out
 trash
 
@@ -46,6 +47,3 @@ cypress
 
 # environment
 .env
-
-# HYF Repo Directory
-class02-final-project

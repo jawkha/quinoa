@@ -92,7 +92,7 @@ msgid "sheep meat"
 msgstr "lammekød"
 
 msgid "tea"
-msgstr "the"
+msgstr "te"
 
 msgid "tomato"
 msgstr "tomat"

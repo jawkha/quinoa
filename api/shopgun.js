@@ -22,6 +22,7 @@ require('dotenv').config();
  "token error: undefined"
 
  then you probably need to setup your .env file
+ JK NOTE: you have to make sure that your .env file is placed in the root directory from where you are running the Node commands. If .env is nested in another directory, then you will still get the "token error: undefined" message.
 
  As allways you can ask questions on the Hackyour Future CPH slack channel. Have fun! :)
  */
