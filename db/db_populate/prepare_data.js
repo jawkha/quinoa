@@ -1,5 +1,5 @@
 // ==================== JSON DATA =========================
-const data = require("./../../class02-final-project/data.json");
+const data = require("./../../api/data.json");
 // console.log(data);
 // console.log(data.length);
 
