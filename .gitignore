@@ -34,6 +34,13 @@ class02-final-project
 
 # images folder
 src/assets/images/categories
+screenshots
 
 # my notes
 notes.md
+
+#tests
+cypress
+
+# environment variables
+.env

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import Home from './components/Home';
 import TaggedCategories from './components/TaggedCategories'; 
-import './assets/css/App.css';
 
 class App extends Component {
   constructor() {
