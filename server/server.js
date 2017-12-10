@@ -4,6 +4,10 @@ const config = require("./../db/db.config");
 const express = require("express");
 const bodyParser = require("body-parser");
 
+//or external API
+var request = require('request');
+var router = express.Router();
+var apiKey = '00jayczv096i4pd36usiba3tyd0mht2w';
 
 const connection = mysql.createConnection(config);
 connection.connect(function(err) {
@@ -19,7 +23,7 @@ const app = express();
 
 // ===================MIDDLEWARE=============================
 app.use(express.static("public"));
-app.use(bodyParser.json());
+app.use(bodyParser.json());///parse application/json
 
 // ==========================================================
 
@@ -40,7 +44,7 @@ app.get("/home", (req, res) => {
   let query = connection.query(sqlQuery, function (error, results, fields) {
       if (error) throw error;
       console.log(results);
-      res.json(results);
+      res.json(results);//middleware in express
     });
     console.log(query.sql);
     // connection.end();
@@ -58,29 +62,7 @@ console.log(query.sql);
 // connection.end();
 });
 
-// =======================GET REQUESTS for search bar=======================
-app.get("/home", (req, res) => {
-  let sqlQuery = 'SELECT * FROM categoeies';
-  let query = connection.query(sqlQuery, function (error, results, fields) {
-      if (error) throw error;
-      console.log(results);
-      res.json(results);
-    });
-    console.log(query.sql);
-    // connection.end();
-});
 
-app.get("/:category", (req, res) => {
-let sqlQuery = "SELECT category_name FROM categories WHERE category_name = ?";
-let value = req.params.category;
-let query = connection.query(sqlQuery, value, function (error, results, fields) {
-  if (error) throw error;
-  console.log(results);
-  res.json(results);
-});
-console.log(query.sql);
-// connection.end();
-});
 
 // POST
 // app.post("/api/cars", (req, res) => {
