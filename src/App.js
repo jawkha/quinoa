@@ -1,18 +1,45 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import axios from 'axios';
+
+import Home from './components/Home';
+import TaggedCategories from './components/TaggedCategories'; 
+import './assets/css/App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+        tags: [],
+        tagMatches: [],
+        activeTag: ""
+    };
+    this.findTaggedCategories = this.findTaggedCategories.bind(this);
+  }
+
+   //   GET REQUEST --- 
+   componentDidMount() {
+    axios.get("/home").then(res => {
+      console.log(res.data);
+      const tags = res.data;
+      this.setState({ tags: tags });
+    });
+  }
+
+  findTaggedCategories(tag) {
+    this.setState({activeTag: tag}, function(){
+      axios.get(`/${this.state.activeTag}`).then(res => {
+        console.log(res.data);
+        const tagMatches = res.data;
+        this.setState({ tagMatches: tagMatches });
+      });
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Home tags={this.state.tags} findTaggedCategories={this.findTaggedCategories} />
+        <TaggedCategories activeTag={this.state.activeTag} tagMatches={this.state.tagMatches} />        
       </div>
     );
   }
