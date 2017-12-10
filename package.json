@@ -4,21 +4,20 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
     "bootstrap": "^4.0.0-beta.2",
-    "classnames": "^2.2.5",
+    "crypto": "^1.0.1",
+    "express": "^4.16.2",
+    "gettext-parser": "^1.3.0",
     "mysql": "^2.15.0",
-    "mysql2": "^1.5.1",
     "react": "^16.1.1",
-    "react-bootstrap": "^0.31.5",
-    "react-chartjs": "^0.8.0",
     "react-dom": "^16.1.1",
     "react-icons": "^2.2.7",
-    "react-route": "^1.0.3",
-    "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
-    "react-slick": "^0.15.4",
-    "slick-carousel": "^1.8.1"
+    "recharts": "^1.0.0-beta.6",
+    "router-express": "^1.5.2",
+    "shopgun-sdk": "^1.1.25"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -26,8 +25,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:4000/",
   "devDependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2"
+    "dotenv": "^4.0.0"
   }
 }

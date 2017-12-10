@@ -31,3 +31,4 @@ db/db_create/rename_db.sh
 
 # project instructions folder
 class02-final-project
+.env
