@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 
 class Title extends Component {
@@ -10,7 +10,7 @@ class Title extends Component {
             <div className="container">
                 <div className='row'>
                     <div className="col-xs-2">
-                        <Link to='/App' >Back</Link>
+                        Back
                             </div>
                     <div className="col-xs-10">QUINOA</div>
                 </div>

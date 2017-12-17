@@ -1,6 +1,6 @@
 import React from "react";
 import FaChevronRight from 'react-icons/lib/fa/chevron-right';
-import { Link } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 
 const SingleTag = props => {
   console.log(props);
@@ -14,8 +14,8 @@ const SingleTag = props => {
                  <strong>{props.tag}</strong>  </div>
                {/* <div className='col-xs-4 icon'> <FaChevronRight onClick={(e)=>
                  {e.preventDefault(); this.selectTags()} }/></div> */}
-                 <div className='col-xs-4 icon'> <Link to='/App' > <FaChevronRight
-                        onClick={this.selectTags}/></Link>
+                 <div className='col-xs-4 icon'> <FaChevronRight
+                        onClick={this.selectTags}/>
                             {props.selectTag}
                         </div>
          </div>

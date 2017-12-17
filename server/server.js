@@ -57,32 +57,46 @@ app.get("/products/:category", (req, res, next) => {
     console.log('111111111');
     const token = response.data.token;
     console.log('2222222222222');
-    // search nearby offers
-    // shopgun.offerSearch(token, {
-    //     query: translate(req.params.category),
-    //     r_lat: 55.676098,
-    //     r_lon: 12.568337,
-    //     r_locale: 'da_DK',
-    //    })
-    //    .then(function (response) {
-    //     // console.log("data:",response.data);
-    //     console.log("data:333333333333333");
-    // }).catch(function (response) {
-    //     console.log("error:", response);
-    //     console.log("error:44444444444");
-    //     });
+   // search nearby offers
+    shopgun.offerSearch(token, {
+        query: translate(req.params.category),
+        r_lat: 55.676098,
+        r_lon: 12.568337,
+        r_locale: 'da_DK',
+       })
+       .then(function (response) {
+        // console.log("data:",response.data);
+        console.log("data:333333333333333");
+        response.data.map(item => {
+          res.send(`item.id: ${item.id}
+              item.heading: ${item.heading}
+              item.images: ${item.images.view}
+              item.price: ${item.pricing.price}
+          `)});
+          console.log(response.data)
+    }).catch(function (response) {
+        console.log("error:", response);
+        console.log("error:44444444444");
+        });
 
-    // get the location of the nearest stores for the dealer. (A dealer could e.g be "Rema 1000" or "Netto")
-    // shopgun.storeList(token, {
-    //     r_lat: 55.676098,
-    //     r_lon: 12.568337,
-    //     dealer_ids: ['11deC']  // NOTE: you can find the dealer_id in the offerSearch result
-    // }).then(function(response) {
-    //     // console.log("data:", response.data);
-    //     console.log("data:2222222222222");
-    // });
+   // get the location of the nearest stores for the dealer. (A dealer could e.g be "Rema 1000" or "Netto")
+    shopgun.storeList(token, {
+        r_lat: 55.676098,
+        r_lon: 12.568337,
+        dealer_ids: ['11deC']  // NOTE: you can find the dealer_id in the offerSearch result
+    }).then(function(response) {
+        // console.log("data:", response.data);
+        response.data.map(item => {
+          res.send(`item.id: ${item.id}
+              item.name: ${item.branding.name}
+              item.city: ${item.city}
+              item.latitude: ${item.latitude}
+              item.longitude: ${item.longitude}
+          `)});
+        console.log("data:2222222222222");
+    });
 
-console.log('hala33333')
+  console.log('hala33333')
 }).catch(function (err) {
   console.log("token error:", err.data);
 });
