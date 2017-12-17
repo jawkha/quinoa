@@ -2,10 +2,22 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
+body {
+  background-color: #eee
+}
 .img {
-  margin-top: 5px;
-  margin-bottom: 15px;
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+.img-header {
+  background-color: #00ffdf;
+  width: 100%;
+  height: 70px;
+  background-attachment: fixed
+}
+.logo {
+   margin-left: 20%;
+  margin-top: 10px 
 }
 .tags {
   text-align: center;
@@ -17,3 +29,14 @@
   margin-top: 8px;
 }
 
+input[type='text'] {
+  background: white url(./assets/icon-pack/icon-pack/search.svg) no-repeat ;
+  background-position: 10px;
+  padding: 10px;
+  padding-left: 30px;
+  border-radius: 7px;
+  background-color: #eee
+}
+input[type='text']:focus {
+  background-image: none;
+}

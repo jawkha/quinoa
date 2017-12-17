@@ -1,13 +1,10 @@
 const mysql = require('mysql');
 const config = require("./../db/db.config");
-
 const express = require("express");
 const bodyParser = require("body-parser");
-
-//or external API
-var request = require('request');
-var router = express.Router();
-var apiKey = '00jayczv096i4pd36usiba3tyd0mht2w';
+//external API
+const shopgun = require('./shopgun.js');
+const translate = require('./translate.js');
 
 const connection = mysql.createConnection(config);
 connection.connect(function(err) {
@@ -18,28 +15,13 @@ connection.connect(function(err) {
     console.log('connected as id ' + connection.threadId);
   });
 
-// =============INITIALIZE THE EXPRESS SERVER================
 const app = express();
 
-// ===================MIDDLEWARE=============================
 app.use(express.static("public"));
 app.use(bodyParser.json());///parse application/json
 
-// ==========================================================
-
-// =======================GET REQUESTS=======================
-// app.get("/home", (req, res) => {
-//     let sqlQuery = 'SELECT tag_name FROM tags';
-//     let query = connection.query(sqlQuery, function (error, results, fields) {
-//         if (error) throw error;
-//         console.log(results);
-//         res.json(results);
-//       });
-//       console.log(query.sql);
-//       connection.end();
-// });
-// =======================GET REQUESTS=======================
-app.get("/home", (req, res) => {
+// GET REQUESTS
+app.get("/home", (req, res, next) => {
   let sqlQuery = 'SELECT * FROM tags';
   let query = connection.query(sqlQuery, function (error, results, fields) {
       if (error) throw error;
@@ -50,42 +32,73 @@ app.get("/home", (req, res) => {
     // connection.end();
 });
 
-app.get("/:tag", (req, res) => {
+app.get("/:tag", (req, res, next) => {
 let sqlQuery = "SELECT category_name, tag_name, water_consumption FROM categories_tags JOIN categories ON categories.category_id = categories_tags.category_id JOIN tags ON tags.tag_id = categories_tags.tag_id WHERE tag_name = ?";
 let value = req.params.tag;
 let query = connection.query(sqlQuery, value, function (error, results, fields) {
   if (error) throw error;
-  console.log(results);
+  console.log();
   res.json(results);
 });
 console.log(query.sql);
 // connection.end();
 });
 
+//GET request, to get the data from the external api....
 
+//You can use the category as a query string
+// app.get("/getProducts/:category"  , (req, res) => {
+//..shopgun.getToken ....shopgun.offerSearch(token,
+//{query: req.params.category  .....
 
-// POST
-// app.post("/api/cars", (req, res) => {
-//   const newCar = req.body;
-//   cars.push(newCar);
-//   res.json({ records: cars });
-// });
+app.get("/products/:category", (req, res, next) => {
+  console.log('hala')
+  shopgun.getToken().then(function(response) {
+    console.log('111111111');
+    const token = response.data.token;
+    console.log('2222222222222');
+    // search nearby offers
+    // shopgun.offerSearch(token, {
+    //     query: translate(req.params.category),
+    //     r_lat: 55.676098,
+    //     r_lon: 12.568337,
+    //     r_locale: 'da_DK',
+    //    })
+    //    .then(function (response) {
+    //     // console.log("data:",response.data);
+    //     console.log("data:333333333333333");
+    // }).catch(function (response) {
+    //     console.log("error:", response);
+    //     console.log("error:44444444444");
+    //     });
 
-// // PUT
-// app.put("/api/cars/:id", (req, res) => {
-//   const index = cars.findIndex((car) => car.id == req.params.id);
-//   console.log(`index value of modified car is ${index}`);
-//   cars[index] = req.body;
-//   res.json({ records: cars });
-// });
+    // get the location of the nearest stores for the dealer. (A dealer could e.g be "Rema 1000" or "Netto")
+    // shopgun.storeList(token, {
+    //     r_lat: 55.676098,
+    //     r_lon: 12.568337,
+    //     dealer_ids: ['11deC']  // NOTE: you can find the dealer_id in the offerSearch result
+    // }).then(function(response) {
+    //     // console.log("data:", response.data);
+    //     console.log("data:2222222222222");
+    // });
 
-// // DELETE
-// app.delete("/api/cars/:id", (req, res) => {
-//   cars = cars.filter((car) => car.id != req.params.id);
-//   res.json({ records: cars });
-// });
-
-// PORT specifier
-app.listen(4000, function() {
-  console.log("quinoa app server listening on port 4000 ...");
+console.log('hala33333')
+}).catch(function (err) {
+  console.log("token error:", err.data);
 });
+res.send('helllllllllllllo')
+console.log('hala22222')
+.catch(next)
+});
+
+
+//error handling 
+app.use(function(err, req, res, next) {
+  console.log('the error from next is :' + err)
+});
+
+//server port
+app.listen(4000, function() {
+  console.log("The server is listening on port 4000 ...");
+});
+
