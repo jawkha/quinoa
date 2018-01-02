@@ -45,9 +45,9 @@ class App extends Component {
     });
   }
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(nextProps) {
     axios.get("/products/:category").then(res => {
-      console.log(res.data);
+      console.log(nextProps);
       const products = res.data;
       this.setState({ products: products });
     }); 
