@@ -1,5 +1,4 @@
 import React from "react";
-
 import HomeSingleTag from "./HomeSingleTag";
 
 const HomeTags = props => {

@@ -20,7 +20,7 @@ const app = express();
 app.use(express.static("public"));
 app.use(bodyParser.json());///parse application/json
 
-// GET REQUESTS
+// // GET REQUESTS
 app.get("/home", (req, res, next) => {
   let sqlQuery = 'SELECT * FROM tags';
   let query = connection.query(sqlQuery, function (error, results, fields) {
@@ -44,75 +44,68 @@ console.log(query.sql);
 // connection.end();
 });
 
-//GET request, to get the data from the external api....
+// //GET request, to get the data from the external api....
 
-//You can use the category as a query string
-// app.get("/getProducts/:category"  , (req, res) => {
-//..shopgun.getToken ....shopgun.offerSearch(token,
-//{query: req.params.category  .....
+// //You can use the category as a query string
+// // app.get("/getProducts/:category"  , (req, res) => {
+// //..shopgun.getToken ....shopgun.offerSearch(token,
+// //{query: req.params.category  .....
 
-app.get("/products/:category", (req, res, next) => {
-  console.log('hala')
-  shopgun.getToken().then(function(response) {
+app.get('/products/:category', (req, res) => {
+  const category = req.params.category;
+  
+    shopgun.getToken().then(function(response) {
     console.log('111111111');
     const token = response.data.token;
-    console.log('2222222222222');
-   // search nearby offers
-    shopgun.offerSearch(token, {
-        query: translate(req.params.category),
+    console.log(token);
+
+        shopgun.offerSearch(token, {
+        query: translate(category),
         r_lat: 55.676098,
         r_lon: 12.568337,
         r_locale: 'da_DK',
        })
        .then(function (response) {
-        // console.log("data:",response.data);
-        console.log("data:333333333333333");
-        response.data.map(item => {
-          res.send(`item.id: ${item.id}
-              item.heading: ${item.heading}
-              item.images: ${item.images.view}
-              item.price: ${item.pricing.price}
-          `)});
-          console.log(response.data)
+          response.data.map(product => {
+            res.send(`product.id: ${product.id}
+            product.heading: ${product.heading}
+            product.images: ${product.images.view}
+            product.price: ${product.pricing.price}
+            product.branding.name: ${product.branding.name}
+            product.description: ${product.description}
+            `)});
+        console.log("done");
     }).catch(function (response) {
-        console.log("error:", response);
+        console.log("error isssssssssssssss:", response.data);
         console.log("error:44444444444");
         });
+//     })
+// });
 
    // get the location of the nearest stores for the dealer. (A dealer could e.g be "Rema 1000" or "Netto")
-    shopgun.storeList(token, {
-        r_lat: 55.676098,
-        r_lon: 12.568337,
-        dealer_ids: ['11deC']  // NOTE: you can find the dealer_id in the offerSearch result
-    }).then(function(response) {
-        // console.log("data:", response.data);
-        response.data.map(item => {
-          res.send(`item.id: ${item.id}
-              item.name: ${item.branding.name}
-              item.city: ${item.city}
-              item.latitude: ${item.latitude}
-              item.longitude: ${item.longitude}
-          `)});
-        console.log("data:2222222222222");
-    });
+//     shopgun.storeList(token, {
+//         r_lat: 55.676098,
+//         r_lon: 12.568337,
+//         dealer_ids: ['11deC']  // NOTE: you can find the dealer_id in the offerSearch result
+//     }).then(function(response) {
+//          console.log("data:", response.data);
+//         response.data.map(item => {
+//           res.write(`item.id: ${item.id}
+//               item.name: ${item.branding.name}
+//               item.city: ${item.city}
+//               item.latitude: ${item.latitude}
+//               item.longitude: ${item.longitude}
+//           `)});
+    
+// })
+// .catch(function (err) {
+//   console.log("token error:", err);
+// });
+   
 
-  console.log('hala33333')
-}).catch(function (err) {
-  console.log("token error:", err.data);
-});
-res.send('helllllllllllllo')
-console.log('hala22222')
-.catch(next)
+  })
 });
 
-
-//error handling 
-app.use(function(err, req, res, next) {
-  console.log('the error from next is :' + err)
-});
-
-//server port
 app.listen(4000, function() {
   console.log("The server is listening on port 4000 ...");
 });
-

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
 import Home from './components/Home';
 import TaggedCategories from './components/TaggedCategories'; 
 import './App.css';
+//import ProductsPerCategory from './components/ProductsPerCategory';
 
 class App extends Component {
   constructor() {
@@ -11,9 +11,11 @@ class App extends Component {
     this.state = {
         tags: [],
         tagMatches: [],
-        activeTag: ""
+        activeTag: "",
+        products: []
     };
     this.findTaggedCategories = this.findTaggedCategories.bind(this);
+    this.findProductCategories = this.findProductCategories.bind(this);
   }
 
    //   GET REQUEST --- 
@@ -23,10 +25,18 @@ class App extends Component {
       const tags = res.data;
       this.setState({ tags: tags });
     });
+
+    // axios.get("/products/:category").then(res => {
+    //   console.log(res.data);
+    //   const tags = res.data;
+    //   this.setState({ products: products });
+    // });
   }
 
+
   findTaggedCategories(tag) {
-    this.setState({activeTag: tag}, function(){
+    this.setState(
+      {activeTag: tag}, function(){
       axios.get(`/${this.state.activeTag}`).then(res => {
         console.log(res.data);
         const tagMatches = res.data;
@@ -35,11 +45,42 @@ class App extends Component {
     });
   }
 
+  componentWillReceiveProps() {
+    axios.get("/products/:category").then(res => {
+      console.log(res.data);
+      const products = res.data;
+      this.setState({ products: products });
+    }); 
+  }
+
+  //products
+  findProductCategories(product) {
+    this.setState(
+      axios.get(`/products/:category${this.state.activeTag}`).then(res => {
+        console.log(res.data);
+        const tagMatches = res.data;
+        this.setState({ tagMatches: tagMatches });
+      })
+    )
+    
+  }
+
   render() {
+//      //Loading...
+//   if( this.state.tags[0] === undefined ) {
+//     return <div>Loading...</div>
+// }
     return (
       <div className="App">
-        <Home tags={this.state.tags} findTaggedCategories={this.findTaggedCategories} />
+        <Home tags={this.state.tags} 
+        findTaggedCategories={this.findTaggedCategories}
+        products={this.state.products}
+        findProductCategories={this.findProductCategories}
+        />
         <TaggedCategories activeTag={this.state.activeTag} tagMatches={this.state.tagMatches} />        
+        {/* <ProductsPerCategory products={this.state.products}
+         findProductCategories={this.findProductCategories}
+        /> */}
       </div>
     );
   }

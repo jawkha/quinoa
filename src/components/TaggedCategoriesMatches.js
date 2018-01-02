@@ -3,14 +3,12 @@ import TaggedCategoriesSingleMatch from './TaggedCategoriesSingleMatch';
 
 const TaggedCategoriesMatches = (props) => {
     return (
-        <div className="row">
+        <div className="row singleMached">
             {props.tagMatches.map(category => (
-                <div className='singleMached'>
                 <TaggedCategoriesSingleMatch 
                     key={category.category_name}
                     category={category}
                 />
-                </div>
             ))}
         </div>
     );

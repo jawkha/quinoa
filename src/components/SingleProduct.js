@@ -2,9 +2,9 @@ import React from 'react';
 
 const SingleProduct = (props) => {
     return (
-        <div>
-            <div>{props.product}</div>
-        </div>
+        <li>
+            {props.product}
+        </li>
     )
 };
  export default SingleProduct;
