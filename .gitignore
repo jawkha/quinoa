@@ -5,24 +5,18 @@
 
 # testing
 /coverage
+cypress
 
 # production
 /build
 
 # misc
 .DS_Store
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-#=====================================================
-# trash folder contains experiments that didn't work out
-trash
 
 # db config
 db/db.config.js
@@ -30,20 +24,13 @@ db/db.config.js
 # db rename script
 db/db_create/rename_db.sh
 
-# project instructions folder
-class02-final-project
-
 # images folder
 src/assets/images/categories
 
-# app screenshots
-screenshots
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# my notes
-notes.md
-
-# cypress
-cypress
-
-# environment
-.env
+#=====================================================
+# folder containing JK notes, project instructions and mockups, screenshots, experiments, etc.
+__notes
