@@ -506,7 +506,7 @@
             "amount": 1,
             "unit": "kg"
           },
-          "amount": {
+          "use": {
             "amount": 1500,
             "unit": "g CO2"
           }
