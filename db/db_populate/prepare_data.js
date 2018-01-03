@@ -1,30 +1,45 @@
 // ==================== JSON DATA =========================
-const data = require("./../../class02-final-project/data.json");
+const data = require("./../../api/data.json");
 // console.log(data);
 // console.log(data.length);
 
 /* ============= CATEGORY OBJECT TEMPLATE ==================
     {
-        "tags": ["fruit", "sweet"],
-        "category": "Apple",
-        "metrics": [{
-            "per": {
-                "amount": 1,
-                "unit": "kg"
-            },
-            "use": {
-                "amount": 822,
-                "unit": "litres water"
-            }
-        }]
+      "tags": [
+        "fruit",
+        "sweet"
+      ],
+      "category": "Apple",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 822,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 550,
+            "unit": "g CO2"
+          }
+        }
+      ]
     }
 ================================================================ */
 
 /* ================== CATEGORIES TABLE MAPPING ====================
-    obj.category = category_name(varchar(45))
-    obj.metrics.per.amount = quantity(int)
-    obj.metrics.per.unit = measurement_unit(varchar(10))
-    obj.metrics.use.amount = water_consumption(int)
+    obj.category = category_name varchar(99)
+    obj.metrics.per.amount = quantity(kg) int
+    obj.metrics.use.amount = water_consumption(litres) int
+    obj.metrics.use.amount = co2_production(grams) int
 ================================================================= */
 // ================ PREPARING CATEGORIES TABLE =====================
 let categoriesTable = [];
@@ -33,16 +48,20 @@ data.map(obj => {
     let categoriesTableRow = [];
     categoriesTableRow.push(obj.category);
     obj.metrics.map(innerObj => {
-        categoriesTableRow.push(innerObj.per.amount);
-        categoriesTableRow.push(innerObj.per.unit);
-        categoriesTableRow.push(innerObj.use.amount);
+        if (innerObj.use.unit === "litres water") {
+            categoriesTableRow.push(innerObj.per.amount);
+            categoriesTableRow.push(innerObj.use.amount);
+        } 
+        if (innerObj.use.unit === "g CO2") {
+            categoriesTableRow.push(innerObj.use.amount);
+        } 
     })
     categoriesTable.push(categoriesTableRow);
 })
 for (i = 0; i < categoriesTable.length; i++) {
     categoriesTable[i].unshift(i + 1);
 }
-// console.log(categoriesTable);
+console.log(categoriesTable);
 // =================================================================
 
 
@@ -55,26 +74,26 @@ let tagsGrouped = [];
 data.map(obj => {    
     tagsGrouped = tagsGrouped.concat(obj.tags);
 })
-// console.log(tagsGrouped);
+// // console.log(tagsGrouped);
 
 let uniqueTags = new Set(tagsGrouped);
-// console.log(uniqueTags);
+// // console.log(uniqueTags);
 
 let tagsArray = Array.from(uniqueTags);
-// console.log(tagsArray);
+// // console.log(tagsArray);
 
 let tagsTable = [];
 for (i = 0; i < tagsArray.length; i++){
     tagsTable.push([i+1, tagsArray[i]]);
 }
-// console.log(tagsTable);
-// ================ PREPARING CATEGORIES_TAGS TABLE=================
+console.log(tagsTable);
+// // ================ PREPARING CATEGORIES_TAGS TABLE=================
 let tagsInEachCategory = [];
 
 data.map(obj => {
     tagsInEachCategory.push(obj.tags);
 })
-// console.log(tagsInEachCategory);
+// // console.log(tagsInEachCategory);
 let categoriesTagsTable = [];
 let categoriesTagsTableWithNames = []; // just to verify the results
 
@@ -90,7 +109,7 @@ console.log(categoriesTagsTable);
 console.log(categoriesTagsTable.length);
 console.log(categoriesTagsTableWithNames);
 console.log(categoriesTagsTableWithNames.length);
-// =================================================================
+// // =================================================================
 module.exports = {
     categoriesTable,
     tagsTable,
