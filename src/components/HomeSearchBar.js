@@ -27,7 +27,6 @@ class HomeSearchBar extends Component {
       value={this.state.tag} 
       onChange={event => this.onInputChange(event.target.value)} />
       {/* {this.state.tag} */}
-      <button>go</button>
       </div>
     )
   }

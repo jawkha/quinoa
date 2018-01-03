@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import FaChevronRight from "react-icons/lib/fa/chevron-right";
 
 class HomeSingleTag extends Component {
     constructor(props){
@@ -15,12 +14,17 @@ class HomeSingleTag extends Component {
 
     render(){
         return (
-            <div id="single-tag-div" 
-                className="btn btn-success btn-block my-1 py-3"
-                onClick={this.handleClick}>
-                <span id="single-tag" className="text-capitalize">{this.props.tag}</span>
-                <FaChevronRight id="single-tag-chevron" className="float-right" />
-            </div>
+            <li className='tagList'>
+                <div className="row tag" onClick={this.handleClick}>
+                    <div className='col-xs-8'>
+                        <strong>{this.props.tag}</strong>
+                        <p>{this.props.tag.length} item</p>
+                     </div>
+                     <div className='col-xs-4'>
+                          {this.props.selectTag}
+                      </div>
+                 </div>
+             </li>
         );
     }
 };

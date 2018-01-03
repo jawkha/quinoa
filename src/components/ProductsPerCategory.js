@@ -5,7 +5,6 @@ const ProductsPerCategory = (props) => {
         return (
             <ul>
                  {/* <h2>{props.products.heading}</h2>  */}
-                 <h2>hellllllllllo</h2>
                  <p>Products found in a <strong>{props.products.heading}</strong>category</p> 
                  {props.products.map((product) => (
                  <SingleProduct 

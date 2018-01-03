@@ -11,20 +11,33 @@ body {
   height: 70px;
   background-attachment: fixed
 }
+.back {
+  position: relative;
+  top: -55px;
+  left: -30px
+}
 .logo {
    margin-left: 20%;
-  margin-top: 10px 
+  margin-top: 3px 
 }
-.tags {
-  text-align: center;
-  margin-left: -80px;
+.logo2 {
+  margin-left: 20%;
+ margin-top: 35px 
 }
-
-.icon {
-  text-align: right;
-  margin-top: 8px;
+.tag {
+ border: 1px solid gray;
+ padding-top: 5px;
+ padding-left: 5px;
+ margin: 5px;
+ background-color: #fff;
 }
-
+.tagList {
+  list-style: none;
+}
+.text {
+  margin-top: 10px;
+  margin-bottom: -1px;
+}
 input[type='text'] {
   background: white url(./assets/icon-pack/icon-pack/search.svg) no-repeat ;
   background-position: 10px;
@@ -36,10 +49,25 @@ input[type='text'] {
 input[type='text']:focus {
   background-image: none;
 }
-.singleMached {
-  border: 0.1px solid black;
-  background-color: lightgreen;
+.singleMatched {
+  border: 0.1px solid gray;
+  background-color: #fff;
   width: 100%;
   padding: 7px;
+  padding-right: -15px;
+  margin: 10px;
+  list-style: none;
+}
+.water {
+  color: gray;
+  display: inline-block;
+}
+.Waterlcon {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.litre {
+  color: gray;
+  display: block;
   margin: 10px;
 }

@@ -1,11 +1,18 @@
 import React from 'react';
-// import logo from './../assets/images/logos/quinoa_logo.jpeg';
+import Waterlcon from './../assets/icon-pack/icon-pack/water_icon.svg';
 
 const TaggedCategoriesSingleMatch = (props) => {
     return (
-        <div className="col-6">
-            <span className="font-weight-bold float-left">{props.category.category_name}</span>
-            <span className="font-weight-bold float-right">{props.category.water_consumption.toLocaleString()} litres</span>
+        <div className="col-6 singleMatched">
+            <span className="font-weight-bold float-left">
+                {props.category.category_name}
+            </span>
+            <span className="font-weight-bold float-right water">
+                {props.category.water_consumption.toLocaleString() } 
+                <span className='litre' > L/Kg 
+                <img className='img-fluid Waterlcon' src={Waterlcon} alt='logo' width='50' height='50px' />
+            </span>
+            </span>
         </div>
     );
 }

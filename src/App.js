@@ -3,7 +3,6 @@ import axios from 'axios';
 import Home from './components/Home';
 import TaggedCategories from './components/TaggedCategories'; 
 import './App.css';
-//import ProductsPerCategory from './components/ProductsPerCategory';
 
 class App extends Component {
   constructor() {
@@ -77,10 +76,9 @@ class App extends Component {
         products={this.state.products}
         findProductCategories={this.findProductCategories}
         />
-        <TaggedCategories activeTag={this.state.activeTag} tagMatches={this.state.tagMatches} />        
-        {/* <ProductsPerCategory products={this.state.products}
-         findProductCategories={this.findProductCategories}
-        /> */}
+        <TaggedCategories activeTag={this.state.activeTag}
+        tagMatches={this.state.tagMatches}
+        />
       </div>
     );
   }
