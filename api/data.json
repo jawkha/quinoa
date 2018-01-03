@@ -1,0 +1,631 @@
+[
+    {
+      "tags": [
+        "fruit",
+        "sweet"
+      ],
+      "category": "Apple",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 822,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 550,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "fruit",
+        "sweet"
+      ],
+      "category": "Banana",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 790,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 600,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "meat",
+        "protein"
+      ],
+      "category": "Beef",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 15415,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 13300,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "alcohol",
+        "beverage"
+      ],
+      "category": "Beer",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 296,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 3600,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "carbohydrate"
+      ],
+      "category": "Bread",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 1608,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 750,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "fat"
+      ],
+      "category": "Butter",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 5553,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 23800,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "carbohydrate",
+        "vegetable"
+      ],
+      "category": "Cabbage",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 237,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 800,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "fat",
+        "protein"
+      ],
+      "category": "Cheese",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 3178,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 1950,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "protein",
+        "meat"
+      ],
+      "category": "Chicken meat",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 4325,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 3500,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "sweet",
+        "candy"
+      ],
+      "category": "Chocolate",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 17196,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 8000,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "protein"
+      ],
+      "category": "Egg",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 3267,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 1950,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "beverage"
+      ],
+      "category": "Milk",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 1020,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 950,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "fat"
+      ],
+      "category": "Olives",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 3025,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 15600,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "carbohydrate"
+      ],
+      "category": "Pasta (dry)",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 1849,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 4000,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "carbohydrate",
+        "protein"
+      ],
+      "category": "Pizza",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 1239,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 22000,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "meat",
+        "protein"
+      ],
+      "category": "Pork",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 5988,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 3250,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "carbohydrate"
+      ],
+      "category": "Potatoes",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 287,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 600,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "carbohydrate"
+      ],
+      "category": "Rice",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 2497,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "amount": {
+            "amount": 1500,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "meat",
+        "protein"
+      ],
+      "category": "Sheep Meat",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 10412,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 3750,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "beverage"
+      ],
+      "category": "Tea",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 8991,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 5000,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "vegetable"
+      ],
+      "category": "Tomato",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 214,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 8000,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    },
+    {
+      "tags": [
+        "alcohol",
+        "beverage"
+      ],
+      "category": "Wine",
+      "metrics": [
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 436,
+            "unit": "litres water"
+          }
+        },
+        {
+          "per": {
+            "amount": 1,
+            "unit": "kg"
+          },
+          "use": {
+            "amount": 6000,
+            "unit": "g CO2"
+          }
+        }
+      ]
+    }
+  ]
+  
