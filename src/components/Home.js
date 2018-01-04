@@ -1,10 +1,12 @@
 import React from 'react';
 
+// Flux elements
 import QuinoaStore from './../stores/Store';
 import QuinoaActions from './../actions/Actions';
 
-import Logo from './../assets/icons/quinoa_logo.svg';
-import BannerImage from './../assets/images/banner/healthy-food.jpg';
+import HomeHeader from './nestedComponents/HomeHeader';
+import HomeBannerImage from './nestedComponents/HomeBannerImage';
+import HomeSearchBar from './nestedComponents/HomeSearchBar';
 
 class Home extends React.Component {
     constructor() {
@@ -13,6 +15,7 @@ class Home extends React.Component {
         this.state = {
             QuinoaData: QuinoaStore.getState()
         };
+        this.handleStoreChange = this.handleStoreChange.bind(this);
     }
 
     componentDidMount() {
@@ -32,17 +35,9 @@ class Home extends React.Component {
     render() {
         return (
         <div className="container">
-            <div id="home-header" className="text-center" >
-                <img className="py-2" src={`${Logo}`} alt="quinoa logo"/>
-            </div>
-            <div id="home-banner-image">
-                <img className="img-fluid" src={`${BannerImage}`} alt="healthy food" />
-            </div>
-            <div id="home-search-bar" className="my-3">
-                <form> 
-                    <input id="home-search-input" className="input-group input-group-sm" type="text" placeholder="Search" />
-                </form> 
-            </div>
+            <HomeHeader />
+            <HomeBannerImage />
+            <HomeSearchBar />
             <div>
                 <p>What kind of product are you looking for?</p>
                 <p>Select a <strong>tag</strong> below</p>
