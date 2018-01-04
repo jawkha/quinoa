@@ -1,30 +1,25 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+// STYLES
+import './assets/css/App.css';
+
 // COMPONENTS
-import Header from './components/Header';
-import Home from './Home/Home';
-import About from './About/About';
-import ApplyNow from './Apply/Apply';
-import Support from './Support';
-import Contact from './Contact';
-import DonateModal from './DonateModal';
-import NotFound from './NotFound';
+import Home from './components/Home';
+import TagMatches from './components/TagMatches';
+import CategoryMatches from './components/CategoryMatches';
+import ProductMatches from './components/ProductMatches';
 
 
 const App = () => {
 	return (
 		<BrowserRouter>
 			<div>
-				<Header />
 				<Switch>
 					<Route exact path="/" component={Home} />
-					<Route path="/about" component={About} />
-					<Route path="/apply" component={ApplyNow} />
-					<Route path="/support" component={Support} />
-					<Route path="/contact" component={Contact} />
-					<Route path="/donate" component={DonateModal} />
-					<Route component={NotFound} />
+					<Route path="/:tag" component={TagMatches} />
+					<Route path="/:tag/:category" component={CategoryMatches} />
+					<Route path="/:tag/:category/:product" component={ProductMatches} />
 				</Switch>
 			</div>
 		</BrowserRouter>
