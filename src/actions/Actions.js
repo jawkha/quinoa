@@ -21,6 +21,20 @@ let Actions = {
 			payload: tag,
 		});
 	},
+
+	getProducts(category) {
+		Dispatcher.dispatch({
+			type: ActionTypes.GET_PRODUCTS,
+			payload: category,
+		});
+	},
+
+	getShops(product) {
+		Dispatcher.dispatch({
+			type: ActionTypes.GET_SHOPS,
+			payload: product,
+		});
+	},
 };
 
 export default Actions;
