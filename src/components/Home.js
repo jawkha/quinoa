@@ -11,18 +11,24 @@ import HomeSearchBar from './nestedComponents/HomeSearchBar';
 class Home extends React.Component {
     constructor() {
         super();
-        
         this.state = {
-            QuinoaData: QuinoaStore.getState()
+            tags: QuinoaActions.getTags()
         };
         this.handleStoreChange = this.handleStoreChange.bind(this);
     }
 
+    /*
     componentDidMount() {
-		this.storeSubscription = QuinoaStore.addListener(data =>
+		QuinoaActions.getTags();
+	}
+    */
+    
+    // this needs to be reviewed!!!
+    componentWillReceiveProps() {
+        this.storeSubscription = QuinoaStore.addListener(data =>
 			this.handleStoreChange(data)
 		);
-	}
+    }
 
 	componentWillUnmount() {
 		this.storeSubscription.remove();

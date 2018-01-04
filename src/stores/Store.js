@@ -8,8 +8,10 @@ let __emitter = new EventEmitter();
 
 let data = {
 	tags: [],
+	activeTag: "",
 	tagMatches: [],
-	activeTag: ""
+	categoryMatches: [],
+	productMatches: []
 };
 
 let QuinoaStore = {
