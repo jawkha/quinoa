@@ -1,10 +1,10 @@
 import { Dispatcher } from 'flux';
 
-class OurDispatcher extends Dispatcher {
+class QuinoaDispatcher extends Dispatcher {
 	dispatch(action= {}) {
 		console.log('Dispatched', action);
 		super.dispatch(action);
 	}
 }
 
-export default new OurDispatcher();
+export default new QuinoaDispatcher();

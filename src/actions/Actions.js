@@ -1,40 +1,40 @@
-import ActionTypes from './ActionTypes';
-import Dispatcher from '../dispatchers/Dispatcher';
+import QuinoaActionTypes from './ActionTypes';
+import QuinoaDispatcher from '../dispatchers/Dispatcher';
 
-let Actions = {
+let QuinoaActions = {
 	getTags() {
-		Dispatcher.dispatch({
-			type: ActionTypes.GET_TAGS,
+		QuinoaDispatcher.dispatch({
+			type: QuinoaActionTypes.GET_TAGS,
 		});
 	},
 
 	setActiveTag(tag) {
-		Dispatcher.dispatch({
-			type: ActionTypes.SET_ACTIVE_TAG,
+		QuinoaDispatcher.dispatch({
+			type: QuinoaActionTypes.SET_ACTIVE_TAG,
 			payload: tag,
 		});
 	},
 
 	getCategories(tag) {
-		Dispatcher.dispatch({
-			type: ActionTypes.GET_CATEGORIES,
+		QuinoaDispatcher.dispatch({
+			type: QuinoaActionTypes.GET_CATEGORIES,
 			payload: tag,
 		});
 	},
 
 	getProducts(category) {
-		Dispatcher.dispatch({
-			type: ActionTypes.GET_PRODUCTS,
+		QuinoaDispatcher.dispatch({
+			type: QuinoaActionTypes.GET_PRODUCTS,
 			payload: category,
 		});
 	},
 
 	getShops(product) {
-		Dispatcher.dispatch({
-			type: ActionTypes.GET_SHOPS,
+		QuinoaDispatcher.dispatch({
+			type: QuinoaActionTypes.GET_SHOPS,
 			payload: product,
 		});
 	},
 };
 
-export default Actions;
+export default QuinoaActions;

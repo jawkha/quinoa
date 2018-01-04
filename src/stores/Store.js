@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { EventEmitter } from 'fbemitter';
-import OurDispatcher from '../dispatchers/Dispatcher';
-import ActionTypes from '../actions/ActionTypes';
+import QuinoaDispatcher from './../dispatchers/Dispatcher';
+import QuinoaActionTypes from './../actions/ActionTypes';
 
 const CHANGE_EVENT = 'change';
 let __emitter = new EventEmitter();
@@ -12,7 +12,7 @@ let data = {
 	activeTag: ""
 };
 
-let Store = {
+let QuinoaStore = {
 	getState() {
 		return data;
 	},
@@ -22,9 +22,9 @@ let Store = {
 	},
 };
 
-Store.dispatchToken = OurDispatcher.register(action => {
+QuinoaStore.dispatchToken = QuinoaDispatcher.register(action => {
 	switch (action.type) {
-		case ActionTypes.GET_TAGS:
+		case QuinoaActionTypes.GET_TAGS:
 			axios.get("/home").then(res => {
 			console.log(res.data);
 			const tags = res.data;
@@ -33,12 +33,12 @@ Store.dispatchToken = OurDispatcher.register(action => {
 			__emitter.emit(CHANGE_EVENT);
 			break;
 
-		case ActionTypes.SET_ACTIVE_TAG:
+		case QuinoaActionTypes.SET_ACTIVE_TAG:
 			data.activeTag = action.payload.tag;
 			__emitter.emit(CHANGE_EVENT);
 			break;
 
-		case ActionTypes.GET_CATEGORIES:
+		case QuinoaActionTypes.GET_CATEGORIES:
 			if (data.activeTag !== ""){
 			axios.get(`/${data.activeTag}`).then(res => {
 				console.log(res.data);
@@ -51,4 +51,4 @@ Store.dispatchToken = OurDispatcher.register(action => {
 	}
 });
 
-export default Store;
+export default QuinoaStore;
