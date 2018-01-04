@@ -1,0 +1,20 @@
+body {
+    background-color: #F3F7F8;
+    font-family: system-ui;
+    font-size: 14px;
+    color: #868e96;
+    line-height: 1;
+}
+
+#home-header {
+    height: 50px;
+    background-color: #34DEBE;
+}
+
+input[type='text'] {
+    background: #F3F7F8 url('./../icons/search.svg') no-repeat;
+    background-position: 10px;
+    padding: 3px;
+    padding-left: 30px;
+    border-radius: 12px;
+}
