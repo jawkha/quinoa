@@ -1,8 +1,5 @@
 import React from 'react';
-
-// Flux elements
-import QuinoaStore from './../stores/Store';
-import QuinoaActions from './../actions/Actions';
+import axios from 'axios';
 
 import HomeHeader from './nestedComponents/HomeHeader';
 import HomeBannerImage from './nestedComponents/HomeBannerImage';
@@ -12,31 +9,35 @@ class Home extends React.Component {
     constructor() {
         super();
         this.state = {
-            tags: QuinoaActions.getTags()
+            tags: [],
+            activeTag: '',
+            tagMatches: [],
         };
-        this.handleStoreChange = this.handleStoreChange.bind(this);
+        this.getTags = this.getTags.bind(this);
+        this.getTagMatches = this.getTagMatches.bind(this);
     }
-
-    /*
-    componentDidMount() {
-		QuinoaActions.getTags();
-	}
-    */
     
-    // this needs to be reviewed!!!
-    componentWillReceiveProps() {
-        this.storeSubscription = QuinoaStore.addListener(data =>
-			this.handleStoreChange(data)
-		);
+    componentDidMount() {
+		this.getTags();
     }
 
-	componentWillUnmount() {
-		this.storeSubscription.remove();
-	}
+    getTags() {
+        axios.get('/home').then(res => {
+            console.log(res.data);
+            const tags = res.data;
+            this.setState({tags: tags});
+        });
+    }
 
-	handleStoreChange() {
-		this.setState({ QuinoaData: QuinoaStore.getState() });
-	}
+    getTagMatches(tag) {
+        this.setState({activeTag: tag}, function(){
+            axios.get(`/${this.state.activeTag}`).then(res => {
+              console.log(res.data);
+              const tagMatches = res.data;
+              this.setState({ tagMatches: tagMatches });
+            });
+        });
+    }
 
     render() {
         return (
