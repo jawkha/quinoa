@@ -9,8 +9,10 @@ class SingleTag extends Component {
     handleClick(e){
         e.preventDefault();
         let tag = this.props.tag;
-        this.props.getTagMatches(tag);
-        this.props.history.push(`/${tag}`); // this will change the url and result in rendering of new view
+        this.props.history.push({
+            pathname: `/${tag}`,
+            state: {activeTag: tag}
+        }); // this will change the url and result in rendering of new view
     }
 
     render(){

@@ -14,7 +14,6 @@ const AllTags = props => {
         <SingleTag
           key={tag.tag_id}
           tag={tag.tag_name}
-          getTagMatches={props.getTagMatches}
           history={props.history}
         />
       ))}

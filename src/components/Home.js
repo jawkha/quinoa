@@ -11,11 +11,8 @@ class Home extends React.Component {
         super();
         this.state = {
             tags: [],
-            activeTag: '',
-            tagMatches: [],
         };
         this.getTags = this.getTags.bind(this);
-        this.getTagMatches = this.getTagMatches.bind(this);
     }
     
     componentDidMount() {
@@ -30,23 +27,15 @@ class Home extends React.Component {
         });
     }
 
-    getTagMatches(tag) {
-        this.setState({activeTag: tag}, function(){
-            axios.get(`/${this.state.activeTag}`).then(res => {
-              console.log(res.data);
-              const tagMatches = res.data;
-              this.setState({ tagMatches: tagMatches });
-            });
-        });
-    }
-
     render() {
         return (
         <div className="container">
             <HomeHeader />
             <HomeBannerImage />
-            <HomeSearchBar getTagMatches={this.getTagMatches} />
-            <AllTags tags={this.state.tags} getTagMatches={this.getTagMatches} history={this.props.history} />
+            <HomeSearchBar />
+            <AllTags tags={this.state.tags}
+                      history={this.props.history}
+                      />
         </div> 
         );
     }    
