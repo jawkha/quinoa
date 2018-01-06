@@ -4,6 +4,7 @@ import axios from 'axios';
 import HomeHeader from './nestedComponents/HomeHeader';
 import HomeBannerImage from './nestedComponents/HomeBannerImage';
 import HomeSearchBar from './nestedComponents/HomeSearchBar';
+import AllTags from './nestedComponents/AllTags';
 
 class Home extends React.Component {
     constructor() {
@@ -44,14 +45,8 @@ class Home extends React.Component {
         <div className="container">
             <HomeHeader />
             <HomeBannerImage />
-            <HomeSearchBar />
-            <div>
-                <p>What kind of product are you looking for?</p>
-                <p>Select a <strong>tag</strong> below</p>
-            </div>
-            <div id="tags-container">
-                    <p>tag cards will show up here</p>
-            </div>
+            <HomeSearchBar getTagMatches={this.getTagMatches} />
+            <AllTags tags={this.state.tags} getTagMatches={this.getTagMatches} history={this.props.history} />
         </div> 
         );
     }    
