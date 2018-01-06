@@ -16,7 +16,7 @@ class TagMatches extends Component {
         this.getTagMatches = this.getTagMatches.bind(this);
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.getTagMatches(this.state.activeTag);
     }
 
