@@ -17,9 +17,9 @@ const App = () => {
 			<div>
 				<Switch>
 					<Route exact path="/" component={Home} />
-					<Route path="/:tag" component={TagMatches} />
-					<Route path="/:tag/:category" component={CategoryMatches} />
-					<Route path="/:tag/:category/:product" component={ProductMatches} />
+					<Route exact path="/:tag" component={TagMatches} />
+					<Route exact path="/:tag/:category" component={CategoryMatches} />
+					<Route exact path="/:tag/:category/:product" component={ProductMatches} />
 				</Switch>
 			</div>
 		</BrowserRouter>
