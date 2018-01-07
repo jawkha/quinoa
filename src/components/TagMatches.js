@@ -4,6 +4,7 @@ import axios from 'axios';
 import NonHomeHeader from './nestedComponents/NonHomeHeader';
 import ActiveTag from './nestedComponents/ActiveTag';
 import BarCharts from './nestedComponents/BarCharts';
+import TaggedCategories from './nestedComponents/TaggedCategories';
 
 class TagMatches extends Component {
     constructor(props) {
@@ -34,6 +35,10 @@ class TagMatches extends Component {
                 <NonHomeHeader />
                 <ActiveTag activeTag={this.state.activeTag} />
                 <BarCharts tagMatches={this.state.tagMatches} />
+                <TaggedCategories tagMatches={this.state.tagMatches}
+                                activeTag={this.state.activeTag}
+                                history={this.props.history}
+                                />
             </div>
         );
     }
