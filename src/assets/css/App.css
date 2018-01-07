@@ -19,7 +19,7 @@ input[type='text'] {
     border-radius: 12px;
 }
 
-.tag-card {
+.tag-card, .category-card {
     display: block;
     background-color: #FFFFFF;
 }
