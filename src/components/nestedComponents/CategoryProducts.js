@@ -8,9 +8,9 @@ const CategoryProducts = (props) => {
             <div className="row">
                 {props.CategoryMatches.map(product => (
                     <ProductsSingleMatch 
-                        key={product.category_name}
-                        // activeTag={props.activeTag}
-                        // category={category}
+                        key={product.id}
+                        activeTag={props.activeTag}
+                        product={product}
                         history={props.history}
                     />
                 ))}
