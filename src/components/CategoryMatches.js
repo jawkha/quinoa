@@ -22,7 +22,7 @@ class CategoryMatches extends Component {
     }
 
     getCategoryMatches(category) {
-            axios.get(`/${this.state.activeCategory}`).then(res => {
+            axios.get(`/${this.state.activeTag}/${this.state.activeCategory}`).then(res => {
               console.log(res.data);
               const CategoryMatches = res.data;
               this.setState({ CategoryMatches: CategoryMatches });
