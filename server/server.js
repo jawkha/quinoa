@@ -56,16 +56,15 @@ app.get('/:tag', (req, res) => {
 app.get('/:tag/:category', (req, res) => {
   shopgun.getToken().then(function(response) {
     const token = response.data.token;
-
     // search nearby offers
     shopgun
       .offerSearch(token, {
-        query: translate('Apple'),
+        query: translate(`${req.params.category}`),
         r_lat: 55.7947,
         r_lon: 12.5162,
         r_radius: 500,
         r_locale: 'da_DK',
-        limit: 24
+        limit: 10
       })
       .then(function(response) {
         response.data.map(item => {
